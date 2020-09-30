@@ -5,6 +5,7 @@
 #include "stdint.h"
 
 /* 0x000 - RW 0x --- 12/8 Data Register, UARTDR on page 3-5 */ 
+#define __UARTDR__(OE, BE, PE, FE)    (0b##OE##BE##PE##FE##00000000)
 typedef union {
     uint32_t reg;
     struct {

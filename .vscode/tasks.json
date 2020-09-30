@@ -4,17 +4,79 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "debug",
+            "label": "cmake config",
             "type": "shell",
-            "command": "make",
+            "command": "cmake",
             "args": [
+                "-H.",
+                "-Bbuild"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "cmake build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "cmake run",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "run"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "cmake debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
                 "debug"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher":"$gcc"
+            "problemMatcher": []
+        },
+        {
+            "label": "cmake remove",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-E",
+                "remove_directory",
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
     ]
 }

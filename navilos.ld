@@ -1,4 +1,5 @@
 ENTRY(vector_start)
+
 SECTIONS
 {
     . = 0x0;
@@ -14,6 +15,12 @@ SECTIONS
     }
     .bss :
     {
+        _sbss = .;
+        __bss_start__ = _sbss;
+
         *(.bss)
+
+        _ebss = .;
+        __bss_end__ = _ebss;
     }
 }
