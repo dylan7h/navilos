@@ -29,7 +29,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": []
+            "problemMatcher": "$gcc"
         },
         {
             "label": "cmake run",
@@ -45,7 +45,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": []
+            "problemMatcher": "$gcc"
         },
         {
             "label": "cmake debug",
@@ -61,7 +61,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": []
+            "problemMatcher": "$gcc"
         },
         {
             "label": "cmake remove",

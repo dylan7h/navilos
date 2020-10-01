@@ -83,6 +83,7 @@ set(MAP_FILE        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/navilos.map")
 # =========================================
 # boot
 list(APPEND ASM_SRCS "boot/Entry.S")
+list(APPEND C_SRC    "boot/Handler.c")
 
 # =========================================
 # C Source Lists
@@ -92,8 +93,10 @@ list(APPEND C_SRC    "boot/Main.c")
 # hal/rvpb
 list(APPEND C_SRC    "hal/rvpb/Regs.c")
 list(APPEND C_SRC    "hal/rvpb/Uart.c")
+list(APPEND C_SRC    "hal/rvpb/Interrupt.c")
 # lib
 list(APPEND C_SRC    "lib/stdio.c")
+list(APPEND C_SRC    "lib/armcpu.c")
 
 # =========================================
 # Set Executable Target
@@ -104,6 +107,11 @@ add_executable(${CMAKE_PROJECT_NAME} ${ASM_SRCS} ${C_SRC})
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
     WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
     COMMAND ${CMAKE_OBJCOPY} -O binary ${CMAKE_PROJECT_NAME}.axf ${CMAKE_PROJECT_NAME}.bin
+)
+# Extract Assemble From AXF File
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+    COMMAND ${CMAKE_OBJDUMP} -S --disassemble ${CMAKE_PROJECT_NAME}.axf > ${CMAKE_PROJECT_NAME}.asm
 )
 
 # =========================================

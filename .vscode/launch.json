@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C++ Launch",
+            "name": "Remote arm-none-eabi-gdb",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/build/navilos.axf",
@@ -14,10 +14,15 @@
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false,
             "launchCompleteCommand": "exec-run",
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch"
+            "linux": {
+                "miDebuggerPath": "/usr/local/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-gdb"
+            },
+            "windows": {
+                "miDebuggerPath": "C:/Program Files/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-gdb"
+            }
         }
     ]
 }

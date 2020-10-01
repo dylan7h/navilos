@@ -34,6 +34,11 @@ set(CMAKE_LINKER            "${tools}/bin/arm-none-eabi-ld")
 set(CMAKE_OBJCOPY           "${tools}/bin/arm-none-eabi-objcopy")
 
 # =========================================
+# Set Objdump
+# =========================================
+set(CMAKE_OBJDUMP           "${tools}/bin/arm-none-eabi-objdump")
+
+# =========================================
 # Set GDB
 # =========================================
 set(CMAKE_GDB               "${tools}/bin/arm-none-eabi-gdb")
